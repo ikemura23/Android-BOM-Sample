@@ -34,7 +34,19 @@ android {
 
 dependencies {
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    // Not BOM : 個々にバージョン管理する必要がある
+//    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2'
+//    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.2'
+//    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.4.2'
+//    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.4.2'
+
+    // BOM : バージョン指定は１つだけ
+    implementation platform("org.jetbrains.kotlinx:kotlinx-coroutines-bom:1.4.2")
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test'
+
     implementation 'androidx.core:core-ktx:1.3.2'
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.2.1'
